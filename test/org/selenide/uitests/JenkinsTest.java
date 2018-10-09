@@ -82,11 +82,39 @@ public class JenkinsTest {
   public void JenkinsSidePanelCreateItemPositive()
   {
       LogInPositive();
-      $(By.className("task-icon-link")).click();
+      $(By.cssSelector("#tasks > div:nth-child(1) > a.task-link")).click();
       $(By.className("add-item-name")).shouldHave(text("Введите имя Item'а"));
       LogOutPositive();
+      //TODO find xpath workaround
 
   }
+    @Test
+    public void JenkinsSidePanelCreateItemByIconPositive()
+    {
+        LogInPositive();
+        $(By.className("task-icon-link")).click();
+        $(By.className("add-item-name")).shouldHave(text("Введите имя Item'а"));
+        LogOutPositive();
+
+    }
+
+    @Test
+    public void JenkinsSidePanelUsersPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(2) > a.task-link")).click();
+        $(By.id("person-root")).shouldHave(text("root"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+
+    @Test
+    public void JenkinsSidePanelUsersByIconPositive() {
+        LogInPositive();
+        $(By.className("icon-user")).click();
+        $(By.id("person-root")).shouldHave(text("root"));
+        LogOutPositive();
+    }
 
 
 }
