@@ -48,4 +48,22 @@ public class JenkinsTest {
   }
 
   //TODO add check for "Keep me signed in" (without cookie)
+
+  @Test
+  public void JenkinsSidePanelWithTextPositive()
+  {
+    open("http://ec2-18-184-229-190.eu-central-1.compute.amazonaws.com:8080");
+    $(By.name("j_username")).val("admin");
+    $(By.name("j_password")).val("Defaultpassw0rd");
+    $(By.name("Submit")).click();
+    $(By.id("tasks")).shouldHave
+            (text("Создать Item"),
+            text("Пользователи"),
+            text("История сборок"),
+            text("Настроить Jenkins"),
+            text("My Views"),
+            text("Credentials"),
+            text("New View")
+            );
+  }
 }
