@@ -51,10 +51,10 @@ public class JenkinsAtomicTest extends JenkinsTest {
     {
         LogInPositive();
         $(By.id("tasks")).shouldHave
-                (text("Создать Item"),
-                        text("Пользователи"),
-                        text("История сборок"),
-                        text("Настроить Jenkins"),
+                (text("New Item"),
+                        text("People"),
+                        text("Build History"),
+                        text("Manage Jenkins"),
                         text("My Views"),
                         text("Credentials"),
                         text("New View")
@@ -66,7 +66,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     {
         LogInPositive();
         $(By.cssSelector("#tasks > div:nth-child(1) > a.task-link")).click();
-        $(By.className("add-item-name")).shouldHave(text("Введите имя Item'а"));
+        $(By.className("add-item-name")).shouldHave(text("Enter an item name"));
         LogOutPositive();
         //TODO find xpath workaround
 
@@ -76,7 +76,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     {
         LogInPositive();
         $(By.className("task-icon-link")).click();
-        $(By.className("add-item-name")).shouldHave(text("Введите имя Item'а"));
+        $(By.className("add-item-name")).shouldHave(text("Enter an item name"));
         LogOutPositive();
 
     }

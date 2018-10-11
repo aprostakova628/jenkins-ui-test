@@ -44,37 +44,26 @@ tasks.withType(Test).all { testTask ->
     'BUILD_URL': System.getenv()['BUILD_URL']
   ]
   testTask.testLogging.showStandardStreams = true
-  testTask.exclude 'org/selenide/examples/google/classic_page_object/**/*'
+  testTask.exclude 'test/org/selenide/uitests/**/*'
   testTask.outputs.upToDateWhen { false }
 }
 
-task chrome(type: Test) {
+task 'chrome'(type: Test) {
+  systemProperties['selenide.browser'] = 'chrome'
+  systemProperties['selenide.headless'] = 'false'
+}
+
+task 'firefox'(type: Test) {
+  systemProperties['selenide.browser'] = 'firefox'
+  systemProperties['selenide.headless'] = 'false'
+}
+
+task 'chrome-headless'(type: Test) {
   systemProperties['selenide.browser'] = 'chrome'
   systemProperties['selenide.headless'] = 'true'
 }
 
-task firefox(type: Test) {
+task 'firefox-headless'(type: Test) {
   systemProperties['selenide.browser'] = 'firefox'
   systemProperties['selenide.headless'] = 'true'
-}
-
-task ie(type: Test) {
-  systemProperties['selenide.browser'] = 'ie'
-}
-
-task edge(type: Test) {
-  systemProperties['selenide.browser'] = 'edge'
-}
-
-task htmlunit(type: Test) {
-  systemProperties['selenide.browser'] = 'htmlunit'
-}
-
-task phantomjs(type: Test) {
-  systemProperties['selenide.browser'] = 'phantomjs'
-}
-
-// You must enable the 'Allow Remote Automation' option in Safari's Develop menu to control Safari via WebDriver.
-task safari(type: Test) {
-  systemProperties['selenide.browser'] = 'safari'
 }

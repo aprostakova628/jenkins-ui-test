@@ -79,7 +79,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <argLine>-Duser.language=en -Duser.region=GB</argLine>
               <excludes>
                 <exclude>**/classic_page_object/*</exclude>
               </excludes>
@@ -101,7 +100,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <argLine>-Duser.language=en -Duser.region=GB</argLine>
               <excludes>
                 <exclude>**/classic_page_object/*</exclude>
               </excludes>
@@ -123,7 +121,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <!--<argLine>-Duser.language=en -Duser.region=GB</argLine>Dont Work!-->
               <excludes>
                 <exclude>**/classic_page_object/*</exclude>
               </excludes>
@@ -145,7 +142,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <!--<argLine>-Duser.language=en -Duser.region=GB</argLine> Dont Work!-->
               <excludes>
                 <exclude>**/classic_page_object/*</exclude>
               </excludes>
