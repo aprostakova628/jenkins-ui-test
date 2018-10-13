@@ -98,4 +98,134 @@ public class JenkinsAtomicTest extends JenkinsTest {
         $(By.id("person-root")).shouldHave(text("root"));
         LogOutPositive();
     }
+
+    @Test
+    public void JenkinsSidePanelBuildHistoryPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(3) > a.task-link")).click();
+        $(By.id("projectStatus")).shouldHave(text("Build"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+
+    @Test
+    public void JenkinsSidePanelBuildHistoryByIconPositive() {
+        LogInPositive();
+        $(By.className("icon-notepad")).click();
+        $(By.id("projectStatus")).shouldHave(text("Build"));
+        LogOutPositive();
+    }
+
+    @Test
+    public void JenkinsSidePanelManageJenkinsPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(4) > a.task-link")).click();
+        $(By.id("main-panel")).shouldHave(text("Manage Jenkins"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+
+    @Test
+    public void JenkinsSidePanelManageJenkinsByIconPositive() {
+        LogInPositive();
+        $(By.className("icon-gear2")).click();
+        $(By.id("main-panel")).shouldHave(text("Manage Jenkins"));
+        LogOutPositive();
+    }
+
+    @Test
+    public void JenkinsSidePanelMyViewsPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(5) > a.task-link")).click();
+        $(By.className("header")).shouldHave(text("Name"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+
+    @Test
+    public void JenkinsSidePanelMyViewsByIconPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(5) > a.task-icon-link > img")).click();
+        $(By.className("header")).shouldHave(text("Name"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+    @Test
+    public void JenkinsSidePanelCredentialsPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(6) > a.task-link")).click();
+        $(By.className("bigtable")).shouldHave(text("Store"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+
+    @Test
+    public void JenkinsSidePanelCredentialsByIconPositive() {
+        LogInPositive();
+        $(By.className("icon-credentials-credentials")).click();
+        $(By.className("bigtable")).shouldHave(text("Store"));
+        LogOutPositive();
+    }
+
+    @Test
+    public void JenkinsSidePanelCredentialsSystemPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(6) > a.task-link")).click();
+        $(By.cssSelector("#tasks > div:nth-child(6) > div > div > a.task-link")).click();
+        $(By.className("bigtable")).shouldHave(text("Domain"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+
+    @Test
+    public void JenkinsSidePanelCredentialsSystemByIconPositive() {
+        LogInPositive();
+        $(By.className("icon-credentials-credentials")).click();
+        $(By.className("icon-credentials-system-store")).click();
+        $(By.className("bigtable")).shouldHave(text("Domain"));
+        LogOutPositive();
+    }
+
+    @Test
+    public void JenkinsSidePanelCredentialsSystemAddDomainPositive() {
+        LogInPositive();
+        $(By.cssSelector("#tasks > div:nth-child(6) > a.task-link")).click();
+        $(By.cssSelector("#tasks > div:nth-child(6) > div > div > a.task-link")).click();
+        $(By.cssSelector("#tasks > div:nth-child(6) > div > div > div > div > a.task-link")).click();
+        $(By.name("newDomain")).shouldHave(text("Domain Name"));
+        LogOutPositive();
+        //TODO find xpath workaround
+    }
+
+
+    @Test
+    public void JenkinsSidePanelCredentialsSystemAddDomainByIconPositive() {
+        LogInPositive();
+        $(By.className("icon-credentials-credentials")).click();
+        $(By.className("icon-credentials-system-store")).click();
+        $(By.className("icon-credentials-new-domain")).click();
+        $(By.name("newDomain")).shouldHave(text("Domain Name"));
+        LogOutPositive();
+    }
+//TODO create tests for NewView (Broken in Jenkins ver. 2.138.1)
+/*
+     @Test
+    public void JenkinsSidePanelNewViewPositive() {
+        LogInPositive();
+        LogOutPositive();
+    }
+
+
+    @Test
+    public void JenkinsSidePanelNewViewByIconPositive() {
+        LogInPositive();
+        LogOutPositive();
+    }
+*/
 }
