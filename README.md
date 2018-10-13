@@ -7,10 +7,10 @@ Jenkins ui selenide tests
 Type from command line for running tests in different browsers:
 
 ```
-./gradlew chrome
-./gradlew firefox
-./gradlew chrome-headless
-./gradlew firefox--headless
+./gradle chrome
+./gradle firefox
+./gradle chrome-headless
+./gradle firefox-headless
 ```
 
 ### How to run with Maven
