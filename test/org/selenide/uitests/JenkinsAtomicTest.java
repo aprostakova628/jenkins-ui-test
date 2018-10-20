@@ -1,5 +1,6 @@
 package org.selenide.uitests;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -46,6 +47,14 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     //TODO add check for "Keep me signed in" (without cookie)
 
+    @Test
+    public void JenkinsDescriptionIsPresentPositive()
+    {
+        LogInPositive();
+        $(By.id("description")).shouldHave
+                (text("Jenkins VICTIM"));
+        LogOutPositive();
+    }
     @Test
     public void JenkinsSidePanelWithTextPositive()
     {

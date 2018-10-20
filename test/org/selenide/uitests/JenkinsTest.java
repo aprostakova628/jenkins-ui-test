@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class JenkinsTest {
 
-  String baseurl = "http://ec2-18-184-229-190.eu-central-1.compute.amazonaws.com:8080";
+  String baseurl = "http://ec2-35-157-74-160.eu-central-1.compute.amazonaws.com:8080";
 
     public void LogInPositive(){
         open(baseurl);
