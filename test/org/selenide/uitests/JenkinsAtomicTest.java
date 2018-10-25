@@ -222,9 +222,42 @@ public class JenkinsAtomicTest extends JenkinsTest {
         $(By.name("newDomain")).shouldHave(text("Domain Name"));
         LogOutPositive();
     }
+    @Test
+    public void JenkinsUserInHeaderPositive(){
+        LogInPositive();
+        $(By.className("login")).click();
+        $(By.id("main-panel")).shouldHave(text(username));
+        $(By.id("main-panel")).shouldHave(text("admin"));
+        $(By.id("description-link")).shouldHave(text("add description")).click();
+        $(By.name("description")).should(exist);
+    }
+
+    @Test
+    public void JenkinsUserInHeaderDropDownBuildsPositive() {
+        LogInPositive();
+        $(By.className("login")).hover();
+        $(By.id("menuSelector")).click();
+        $(By.linkText("Builds")).click();
+        $(By.id("main-panel")).shouldHave(text("Builds for " + username));
+        $(By.id("projectStatus")).shouldHave(text("Build"));
+    }
 //TODO create tests for NewView (Broken in Jenkins ver. 2.138.1)
-/*
+
+    @Test
+    public void JenkinsUserInHeaderDropDownConfigurePositive() {
+        LogInPositive();
+        $(By.className("login")).hover();
+        $(By.id("menuSelector")).click();
+        $(By.linkText("Configure")).click();
+        $(By.name("_.fullName")).shouldHave(value(username));
+        $(By.name("_.description")).should(exist);
+        $(By.name("email.address")).shouldHave(value(email));
+        $(By.name("_.primaryViewName")).should(exist);
+        $(By.name("_.authorizedKeys")).should(exist);
+    }
+
      @Test
+     @Ignore
     public void JenkinsSidePanelNewViewPositive() {
         LogInPositive();
         LogOutPositive();
@@ -232,9 +265,10 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
 
     @Test
+    @Ignore
     public void JenkinsSidePanelNewViewByIconPositive() {
         LogInPositive();
         LogOutPositive();
     }
-*/
+
 }
