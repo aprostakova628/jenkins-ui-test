@@ -4,7 +4,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class JenkinsTest {
-  String baseurl = "http://ec2-35-157-74-160.eu-central-1.compute.amazonaws.com:8080";
+  String baseurl = "http://localhost:8080";
   String username = "k.sergievskiy";
   String email = "sergievskiy@outlook.com";
     public void LogInPositive(){

@@ -94,7 +94,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     public void JenkinsSidePanelUsersPositive() {
         LogInPositive();
         $(By.cssSelector("#tasks > div:nth-child(2) > a.task-link")).click();
-        $(By.id("person-root")).shouldHave(text("root"));
+        $(By.id("person-admin")).shouldHave(text("admin"));
         LogOutPositive();
         //TODO find xpath workaround
     }
@@ -104,7 +104,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     public void JenkinsSidePanelUsersByIconPositive() {
         LogInPositive();
         $(By.className("icon-user")).click();
-        $(By.id("person-root")).shouldHave(text("root"));
+        $(By.id("person-admin")).shouldHave(text("admin"));
         LogOutPositive();
     }
 
@@ -230,6 +230,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
         $(By.id("main-panel")).shouldHave(text("admin"));
         $(By.id("description-link")).shouldHave(text("add description")).click();
         $(By.name("description")).should(exist);
+        LogOutPositive();
     }
 
     @Test
@@ -240,6 +241,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
         $(By.linkText("Builds")).click();
         $(By.id("main-panel")).shouldHave(text("Builds for " + username));
         $(By.id("projectStatus")).shouldHave(text("Build"));
+        LogOutPositive();
     }
 //TODO create tests for NewView (Broken in Jenkins ver. 2.138.1)
 
@@ -254,6 +256,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
         $(By.name("email.address")).shouldHave(value(email));
         $(By.name("_.primaryViewName")).should(exist);
         $(By.name("_.authorizedKeys")).should(exist);
+        LogOutPositive();
     }
 
      @Test
