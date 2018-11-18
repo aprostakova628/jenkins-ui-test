@@ -59,8 +59,8 @@ public class JenkinsAtomicTest extends JenkinsTest {
     public void JenkinsSidePanelWithTextPositive()
     {
         LogInPositive();
-        $(By.id("tasks")).shouldHave
-                (text("New Item"),
+        $(By.id("tasks")).shouldHave(
+                        text("New Item"),
                         text("People"),
                         text("Build History"),
                         text("Manage Jenkins"),
@@ -74,10 +74,9 @@ public class JenkinsAtomicTest extends JenkinsTest {
     public void JenkinsSidePanelCreateItemPositive()
     {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(1) > a.task-link")).click();
+        $(By.id("tasks")).findElement(By.linkText("New Item")).click();
         $(By.className("add-item-name")).shouldHave(text("Enter an item name"));
         LogOutPositive();
-        //TODO find xpath workaround
 
     }
     @Test
@@ -93,10 +92,9 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelUsersPositive() {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(2) > a.task-link")).click();
+        $(By.id("tasks")).findElement(By.linkText("People")).click();
         $(By.id("person-admin")).shouldHave(text("admin"));
         LogOutPositive();
-        //TODO find xpath workaround
     }
 
 
@@ -111,7 +109,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelBuildHistoryPositive() {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(3) > a.task-link")).click();
+        $(By.id("tasks")).findElement(By.linkText("Build History")).click();
         $(By.id("projectStatus")).shouldHave(text("Build"));
         LogOutPositive();
         //TODO find xpath workaround
@@ -129,10 +127,9 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelManageJenkinsPositive() {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(4) > a.task-link")).click();
+        $(By.id("tasks")).findElement(By.linkText("Manage Jenkins")).click();
         $(By.id("main-panel")).shouldHave(text("Manage Jenkins"));
         LogOutPositive();
-        //TODO find xpath workaround
     }
 
 
@@ -147,10 +144,10 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelMyViewsPositive() {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(5) > a.task-link")).click();
+        $(By.id("tasks")).findElement(By.linkText("My Views")).click();
         $(By.className("header")).shouldHave(text("Name"));
         LogOutPositive();
-        //TODO find xpath workaround
+        // If no jobs created this check shoudnt work
     }
 
 
@@ -166,10 +163,9 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelCredentialsPositive() {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(6) > a.task-link")).click();
+        $(By.id("tasks")).findElement(By.linkText("Credentials")).click();
         $(By.className("bigtable")).shouldHave(text("Store"));
         LogOutPositive();
-        //TODO find xpath workaround
     }
 
 
@@ -184,11 +180,12 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelCredentialsSystemPositive() {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(6) > a.task-link")).click();
-        $(By.cssSelector("#tasks > div:nth-child(6) > div > div > a.task-link")).click();
-        $(By.className("bigtable")).shouldHave(text("Domain"));
+        $(By.id("tasks")).findElement(By.linkText("Credentials")).click();
+        $(By.id("tasks")).findElement(By.linkText("System")).click();
+        $(By.className("bigtable")).shouldHave(
+                text("Domain"),
+                text("Description"));
         LogOutPositive();
-        //TODO find xpath workaround
     }
 
 
@@ -204,12 +201,11 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelCredentialsSystemAddDomainPositive() {
         LogInPositive();
-        $(By.cssSelector("#tasks > div:nth-child(6) > a.task-link")).click();
-        $(By.cssSelector("#tasks > div:nth-child(6) > div > div > a.task-link")).click();
-        $(By.cssSelector("#tasks > div:nth-child(6) > div > div > div > div > a.task-link")).click();
+        $(By.id("tasks")).findElement(By.linkText("Credentials")).click();
+        $(By.id("tasks")).findElement(By.linkText("System")).click();
+        $(By.id("tasks")).findElement(By.linkText("Add domain")).click();
         $(By.name("newDomain")).shouldHave(text("Domain Name"));
         LogOutPositive();
-        //TODO find xpath workaround
     }
 
 
