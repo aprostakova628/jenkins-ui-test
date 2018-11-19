@@ -32,3 +32,8 @@ mvn clean test -P firefox-headless
 ```
 mvn clean test -P chrome -Dtest=JenkinsAtomicTest#JenkinsLogInPositive
 ```
+###How to run with Maven BeforeChecks
+
+```
+mvn clean test -Dtest=JenkinsSuite -P chrome
+```
