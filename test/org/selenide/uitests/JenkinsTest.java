@@ -9,7 +9,7 @@ public class JenkinsTest {
   public static String baseurl = "http://localhost:8080";
   public static String username = "k.sergievskiy";
   public static String email = "sergievskiy@outlook.com";
-  public static String login = "admin";
+  public static String login = "admi87n";
   public static String password = "Defaultpassw0rd";
 
 
