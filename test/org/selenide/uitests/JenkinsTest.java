@@ -23,5 +23,4 @@ public class JenkinsTest {
         open(baseurl + "/logout");
     }
 
-
 }
