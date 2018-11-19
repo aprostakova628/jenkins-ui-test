@@ -112,7 +112,6 @@ public class JenkinsAtomicTest extends JenkinsTest {
         $(By.id("tasks")).findElement(By.linkText("Build History")).click();
         $(By.id("projectStatus")).shouldHave(text("Build"));
         LogOutPositive();
-        //TODO find xpath workaround
     }
 
 
@@ -152,6 +151,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
 
     @Test
+    @Ignore
     public void JenkinsSidePanelMyViewsByIconPositive() {
         LogInPositive();
         $(By.cssSelector("#tasks > div:nth-child(5) > a.task-icon-link > img")).click();
