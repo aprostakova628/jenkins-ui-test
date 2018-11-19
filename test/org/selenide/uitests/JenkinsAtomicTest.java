@@ -1,5 +1,6 @@
 package org.selenide.uitests;
 
+import io.qameta.allure.Flaky;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
