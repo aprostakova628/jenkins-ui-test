@@ -27,6 +27,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsLogInPositive()
     {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("jenkins-home-link")).shouldBe(visible);
         LogOutPositive();
@@ -36,6 +37,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsLogInNegative()
     {
+        LogOutPositive(); // start from scratch
         LogInNegative();
         $(By.className("alert alert-danger"));
         $(By.name("login")).shouldHave(text("Invalid username or password"));
@@ -50,6 +52,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsDescriptionIsPresentPositive()
     {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("description")).shouldHave
                 (text("Jenkins VICTIM"));
@@ -58,6 +61,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelWithTextPositive()
     {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).shouldHave(
                         text("New Item"),
@@ -73,6 +77,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelCreateItemPositive()
     {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("New Item")).click();
         $(By.className("add-item-name")).shouldHave(text("Enter an item name"));
@@ -82,6 +87,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     public void JenkinsSidePanelCreateItemByIconPositive()
     {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("task-icon-link")).click();
         $(By.className("add-item-name")).shouldHave(text("Enter an item name"));
@@ -91,6 +97,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelUsersPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("People")).click();
         $(By.id("person-admin")).shouldHave(text("admin"));
@@ -100,6 +107,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelUsersByIconPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("icon-user")).click();
         $(By.id("person-admin")).shouldHave(text("admin"));
@@ -108,6 +116,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelBuildHistoryPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("Build History")).click();
         $(By.id("projectStatus")).shouldHave(text("Build"));
@@ -117,6 +126,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelBuildHistoryByIconPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("icon-notepad")).click();
         $(By.id("projectStatus")).shouldHave(text("Build"));
@@ -125,6 +135,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelManageJenkinsPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("Manage Jenkins")).click();
         $(By.id("main-panel")).shouldHave(text("Manage Jenkins"));
@@ -134,6 +145,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelManageJenkinsByIconPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("icon-gear2")).click();
         $(By.id("main-panel")).shouldHave(text("Manage Jenkins"));
@@ -142,6 +154,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelMyViewsPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("My Views")).click();
         $(By.className("header")).shouldHave(text("Name"));
@@ -153,6 +166,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     @Test
     @Ignore
     public void JenkinsSidePanelMyViewsByIconPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.cssSelector("#tasks > div:nth-child(5) > a.task-icon-link > img")).click();
         $(By.className("header")).shouldHave(text("Name"));
@@ -162,6 +176,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelCredentialsPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("Credentials")).click();
         $(By.className("bigtable")).shouldHave(text("Store"));
@@ -171,6 +186,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelCredentialsByIconPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("icon-credentials-credentials")).click();
         $(By.className("bigtable")).shouldHave(text("Store"));
@@ -179,6 +195,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelCredentialsSystemPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("Credentials")).click();
         $(By.id("tasks")).findElement(By.linkText("System")).click();
@@ -191,6 +208,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelCredentialsSystemByIconPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("icon-credentials-credentials")).click();
         $(By.className("icon-credentials-system-store")).click();
@@ -200,6 +218,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelCredentialsSystemAddDomainPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.id("tasks")).findElement(By.linkText("Credentials")).click();
         $(By.id("tasks")).findElement(By.linkText("System")).click();
@@ -211,6 +230,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsSidePanelCredentialsSystemAddDomainByIconPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("icon-credentials-credentials")).click();
         $(By.className("icon-credentials-system-store")).click();
@@ -220,6 +240,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
     }
     @Test
     public void JenkinsUserInHeaderPositive(){
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("login")).click();
         $(By.id("main-panel")).shouldHave(text(username));
@@ -231,6 +252,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsUserInHeaderDropDownBuildsPositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("login")).hover();
         $(By.id("menuSelector")).click();
@@ -243,6 +265,7 @@ public class JenkinsAtomicTest extends JenkinsTest {
 
     @Test
     public void JenkinsUserInHeaderDropDownConfigurePositive() {
+        LogOutPositive(); // start from scratch
         LogInPositive();
         $(By.className("login")).hover();
         $(By.id("menuSelector")).click();

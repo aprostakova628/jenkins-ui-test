@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 
 public class JenkinsTest {
-  public static String baseurl = "http://localhost:8080";
+  public static String baseurl = "http://ec2-18-195-89-228.eu-central-1.compute.amazonaws.com:8080";
   public static String username = "k.sergievskiy";
   public static String email = "sergievskiy@outlook.com";
   public static String login = "admin";
